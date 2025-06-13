@@ -1,7 +1,7 @@
 import socket
 import requests
 
-host_ip = socket.gethostbyname("host.docker.internal")
+host_ip = socket.gethostbyname(socket.gethostname())
 print(f"Host IP: {host_ip}")
 
 ip = requests.get("https://api.ipify.org").text
