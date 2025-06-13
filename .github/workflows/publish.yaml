@@ -20,4 +20,6 @@ jobs:
       - name: Build and push the ipaddress image
         run: |
           docker build . --tag ghcr.io/christianwasta/ipaddress-server:latest
+          docker run ghcr.io/christianwasta/ipaddress-server:latest
           docker push ghcr.io/christianwasta/ipaddress-server:latest
+          
