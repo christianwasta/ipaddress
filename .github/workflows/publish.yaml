@@ -17,6 +17,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_PAT }}
 
+      - name: Run container
+        run: docker run --add-host=host.docker.internal:host-gateway ghcr.io/christianwasta/ipaddress-server:latest
+
       - name: Build and push the ipaddress image
         run: |
           docker build . --tag ghcr.io/christianwasta/ipaddress-server:latest
