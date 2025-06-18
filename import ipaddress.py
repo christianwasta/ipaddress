@@ -12,9 +12,6 @@ def get_host_ip():
         print(f"Error getting host IP: {e}")
         return None
 
-host_ip = socket.gethostbyname('host.docker.internal')
-print(f"Host IP_host.docker.internal: {host_ip}")
-
 public_ip = requests.get("https://api.ipify.org").text
 print(f"Public IP address: {public_ip}")
 
