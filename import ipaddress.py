@@ -1,6 +1,7 @@
 import os
 import socket
 import subprocess
+import requests
 
 def get_host_ip():
     try:
@@ -11,5 +12,14 @@ def get_host_ip():
         print(f"Error getting host IP: {e}")
         return None
 
-host_ip = get_host_ip()
-print(f"Host IP: {host_ip}")
+host_ip = socket.gethostbyname('host.docker.internal')
+print(f"Host IP_host.docker.internal: {host_ip}")
+
+public_ip = requests.get("https://api.ipify.org").text
+print(f"Public IP address: {public_ip}")
+
+host_ip_2 = os.getenv("HOST_IP", "Not provided")
+print(f"Host IP_v4: {host_ip_2}")
+
+host_ip_3 = get_host_ip()
+print(f"Host IP: {host_ip_3}")
